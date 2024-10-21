@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning Roadmap</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e8491d;
+            color: white;
+            padding: 10px 20px;
+            margin: 20px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d73715;
+            transform: scale(1.05);
+        }
+
+        .roadmap-list {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .roadmap-list li {
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .subtopic {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .subtopic > div {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+
+        .doneBtn, .learnBtn, .undoneBtn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .doneBtn {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .doneBtn:hover {
+            background-color: #45a049; /* Darker green */
+            transform: scale(1.05);
+        }
+
+        .undoneBtn {
+            background-color: #f44336; /* Red */
+        }
+
+        .undoneBtn:hover {
+            background-color: #c62828; /* Darker red */
+            transform: scale(1.05);
+        }
+
+        .learnBtn {
+            background-color: #007BFF; /* Blue */
+        }
+
+        .learnBtn:hover {
+            background-color: #0056b3; /* Darker blue */
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background: #35424a;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        footer h2 {
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript Learning Roadmap</h1>
+            <p>Your structured guide to mastering JavaScript for React.</p>
+            <button class="btn" id="exploreBtn">Explore Roadmap</button>
+        </header>
+        <div id="roadmap" class="roadmap-list hidden">
+            <li data-topic-id="1">
+                <strong>1. JavaScript Basics</strong>
+                <ul>
+                    <li class="subtopic" data-subtopic-id="1-1">
+                        <span>Variables: Learn about <code>var</code>, <code>let</code>, and <code>const</code>.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Basics">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="1-2">
+                        <span>Data Types: Understand numbers, strings, booleans, arrays, and objects.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Data+Types">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="1-3">
+                        <span>Control Structures: Master <code>if</code>, <code>else</code>, <code>switch</code>, <code>for</code>, <code>while</code>, <code>do-while</code> loops.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Control+Structures">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="1-4">
+                        <span>Functions: Learn how to declare and use functions.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Functions">Learn</button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li data-topic-id="2">
+                <strong>2. ES6+ (Modern JavaScript Syntax)</strong>
+                <ul>
+                    <li class="subtopic" data-subtopic-id="2-1">
+                        <span>Arrow Functions</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Arrow+Functions">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="2-2">
+                        <span>Template Literals</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Template+Literals">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="2-3">
+                        <span>Destructuring</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Destructuring">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="2-4">
+                        <span>Spread and Rest Operators</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Spread+and+Rest+Operators">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="2-5">
+                        <span>Default Parameters</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Default+Parameters">Learn</button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li data-topic-id="3">
+                <strong>3. Arrays and Array Methods</strong>
+                <ul>
+                    <li class="subtopic" data-subtopic-id="3-1">
+                        <span>Creating Arrays: Learn how to create arrays.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Creating+Arrays">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="3-2">
+                        <span>Accessing Elements: Understand how to access array elements.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Accessing+Array+Elements">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="3-3">
+                        <span>Array Methods: Learn methods like <code>map</code>, <code>filter</code>, and <code>reduce</code>.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Array+Methods">Learn</button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li data-topic-id="4">
+                <strong>4. Functions and Scope</strong>
+                <ul>
+                    <li class="subtopic" data-subtopic-id="4-1">
+                        <span>Function Expressions: Learn the difference between function declarations and expressions.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Function+Expressions">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="4-2">
+                        <span>Higher-Order Functions: Understand functions that take other functions as arguments.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Higher-Order+Functions">Learn</button>
+                        </div>
+                    </li>
+                    <li class="subtopic" data-subtopic-id="4-3">
+                        <span>Closures: Understand how closures work.</span>
+                        <div>
+                            <button class="doneBtn">Done</button>
+                            <button class="undoneBtn hidden">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Closures">Learn</button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <footer>
+            <h2>Ready to Start?</h2>
+            <button class="btn" id="getStartedBtn">Get Started!</button>
+        </footer>
+    </div>
+    <script>
+        const exploreBtn = document.getElementById('exploreBtn');
+        const roadmap = document.getElementById('roadmap');
+
+        exploreBtn.addEventListener('click', () => {
+            roadmap.classList.toggle('hidden');
+            exploreBtn.innerText = roadmap.classList.contains('hidden') ? 'Explore Roadmap' : 'Hide Roadmap';
+        });
+
+        // Load completed statuses from localStorage
+        const loadCompletedTopics = () => {
+            const completedSubtopics = JSON.parse(localStorage.getItem('completedSubtopics')) || {};
+            document.querySelectorAll('.subtopic').forEach(subtopic => {
+                const topicId = subtopic.closest('li').dataset.topicId;
+                const subtopicId = subtopic.dataset.subtopicId;
+                const isCompleted = completedSubtopics[`${topicId}-${subtopicId}`] || false;
+                if (isCompleted) {
+                    markAsCompleted(subtopic, true);
+                }
+            });
+            updateTopicBackgrounds();
+        };
+
+        // Update topic backgrounds based on completed subtopics
+        const updateTopicBackgrounds = () => {
+            document.querySelectorAll('.roadmap-list > li').forEach(topic => {
+                const allDone = Array.from(topic.querySelectorAll('.subtopic')).every(sub => sub.style.backgroundColor === 'rgb(76, 175, 80)'); // Check if all subtopics are done
+                if (allDone) {
+                    topic.style.backgroundColor = '#4CAF50'; // Change topic background to green
+                } else {
+                    topic.style.backgroundColor = ''; // Reset background
+                }
+            });
+        };
+
+        const doneButtons = document.querySelectorAll('.doneBtn');
+
+        doneButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const subtopic = button.closest('.subtopic');
+                const topicId = subtopic.closest('li').dataset.topicId;
+                const subtopicId = subtopic.dataset.subtopicId;
+
+                // Mark as completed
+                markAsCompleted(subtopic);
+                // Store completion in localStorage
+                const completedSubtopics = JSON.parse(localStorage.getItem('completedSubtopics')) || {};
+                completedSubtopics[`${topicId}-${subtopicId}`] = true;
+                localStorage.setItem('completedSubtopics', JSON.stringify(completedSubtopics));
+
+                // Update topic backgrounds
+                updateTopicBackgrounds();
+            });
+        });
+
+        const undoneButtons = document.querySelectorAll('.undoneBtn');
+
+        undoneButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const subtopic = button.closest('.subtopic');
+                const topicId = subtopic.closest('li').dataset.topicId;
+                const subtopicId = subtopic.dataset.subtopicId;
+
+                // Mark as incomplete
+                subtopic.style.backgroundColor = ''; // Reset background
+                button.classList.add('hidden'); // Hide undone button
+                button.previousElementSibling.classList.remove('hidden'); // Show done button
+
+                // Remove from localStorage
+                const completedSubtopics = JSON.parse(localStorage.getItem('completedSubtopics')) || {};
+                delete completedSubtopics[`${topicId}-${subtopicId}`]; // Remove completion status
+                localStorage.setItem('completedSubtopics', JSON.stringify(completedSubtopics));
+
+                // Update topic backgrounds
+                updateTopicBackgrounds();
+            });
+        });
+
+        const markAsCompleted = (subtopic) => {
+            subtopic.style.backgroundColor = '#4CAF50'; // Change background to green
+            const doneButton = subtopic.querySelector('.doneBtn');
+            doneButton.classList.add('hidden'); // Hide done button
+            const undoneButton = subtopic.querySelector('.undoneBtn');
+            undoneButton.classList.remove('hidden'); // Show undone button
+            doneButton.disabled = true; // Disable button
+        };
+
+        const learnButtons = document.querySelectorAll('.learnBtn');
+
+        learnButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-url');
+                window.open(videoUrl, '_blank');
+            });
+        });
+
+        const getStartedBtn = document.getElementById('getStartedBtn');
+        getStartedBtn.addEventListener('click', () => {
+            alert('You are ready to start learning! Good luck!');
+        });
+
+        // Load completed topics on page load
+        window.onload = loadCompletedTopics;
+
+    </script>
+</body>
+</html>
+u
