@@ -170,7 +170,7 @@
         </header>
         <main id="main-content">
             <ul id="roadmap" class="roadmap-list hidden" aria-live="polite">
-                <li>
+                <li data-topic="variables">
                     <h2>1. JavaScript Basics</h2>
                     <div class="subtopic">
                         <span>Variables: Learn about <code>var</code>, <code>let</code>, and <code>const</code>.</span>
@@ -181,7 +181,29 @@
                         </div>
                     </div>
                 </li>
-                <!-- Add more topics here -->
+                <li data-topic="functions">
+                    <h2>2. Functions</h2>
+                    <div class="subtopic">
+                        <span>Understand function declarations, expressions, and arrow functions.</span>
+                        <div>
+                            <button class="doneBtn" aria-label="Mark Functions as done">Done</button>
+                            <button class="undoneBtn hidden" aria-label="Mark Functions as undone">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Functions" aria-label="Learn about Functions on YouTube">Learn</button>
+                        </div>
+                    </div>
+                </li>
+                <li data-topic="objects">
+                    <h2>3. Objects and Arrays</h2>
+                    <div class="subtopic">
+                        <span>Learn about objects, arrays, and destructuring assignments.</span>
+                        <div>
+                            <button class="doneBtn" aria-label="Mark Objects and Arrays as done">Done</button>
+                            <button class="undoneBtn hidden" aria-label="Mark Objects and Arrays as undone">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Objects+and+Arrays" aria-label="Learn about Objects and Arrays on YouTube">Learn</button>
+                        </div>
+                    </div>
+                </li>
+                <!-- Add more topics similarly -->
             </ul>
         </main>
         <footer>
@@ -194,9 +216,38 @@
         const exploreBtn = document.getElementById('exploreBtn');
         const roadmap = document.getElementById('roadmap');
 
+        // Toggle roadmap visibility
         exploreBtn.addEventListener('click', () => {
             roadmap.classList.toggle('hidden');
             exploreBtn.innerText = roadmap.classList.contains('hidden') ? 'Explore Roadmap' : 'Hide Roadmap';
+        });
+
+        // Button event listeners for localStorage
+        const roadmapItems = document.querySelectorAll('.roadmap-list li');
+
+        roadmapItems.forEach(item => {
+            const topic = item.dataset.topic;
+            const doneBtn = item.querySelector('.doneBtn');
+            const undoneBtn = item.querySelector('.undoneBtn');
+
+            const updateButtons = () => {
+                const isDone = localStorage.getItem(topic) === 'done';
+                doneBtn.classList.toggle('hidden', isDone);
+                undoneBtn.classList.toggle('hidden', !isDone);
+            };
+
+            doneBtn.addEventListener('click', () => {
+                localStorage.setItem(topic, 'done');
+                updateButtons();
+            });
+
+            undoneBtn.addEventListener('click', () => {
+                localStorage.removeItem(topic);
+                updateButtons();
+            });
+
+            // Initialize button states on load
+            updateButtons();
         });
 
         const getStartedBtn = document.getElementById('getStartedBtn');
