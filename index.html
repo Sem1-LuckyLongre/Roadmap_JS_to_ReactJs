@@ -9,21 +9,18 @@
     <meta name="author" content="Your Name">
     <link rel="canonical" href="https://yourwebsite.com/javascript-learning-roadmap">
     <style>
-        /* Styles unchanged; only accessibility and SEO improvements were applied */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
             color: #333;
-            transition: background-color 0.5s ease;
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            overflow: hidden;
             padding: 20px;
         }
 
@@ -32,6 +29,8 @@
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
@@ -40,7 +39,7 @@
         }
 
         header p {
-            margin: 0;
+            margin: 10px 0 0;
             font-size: 1.2em;
         }
 
@@ -70,11 +69,60 @@
 
         .roadmap-list li {
             background: #ffffff;
-            border: 1px solid #dddddd;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .roadmap-list h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .roadmap-list .subtopic {
             margin: 10px 0;
             padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #f4f4f4;
+            border-left: 4px solid #e8491d;
+            border-radius: 4px;
+        }
+
+        .roadmap-list button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .doneBtn {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .doneBtn:hover {
+            background-color: #218838;
+        }
+
+        .undoneBtn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .undoneBtn:hover {
+            background-color: #c82333;
+        }
+
+        .learnBtn {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .learnBtn:hover {
+            background-color: #0056b3;
         }
 
         footer {
@@ -83,16 +131,36 @@
             background: #35424a;
             color: #ffffff;
             text-align: center;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
         footer h2 {
             margin: 0;
         }
+
+        .hidden {
+            display: none;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: white;
+            color: blue;
+            padding: 8px;
+            border-radius: 4px;
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:white;color:blue;padding:8px;border-radius:4px;">Skip to Content</a>
+    <a href="#main-content" class="skip-link">Skip to Content</a>
 
     <div class="container">
         <header>
@@ -102,22 +170,18 @@
         </header>
         <main id="main-content">
             <ul id="roadmap" class="roadmap-list hidden" aria-live="polite">
-                <!-- JavaScript topics and subtopics listed here -->
-                <li data-topic-id="1">
+                <li>
                     <h2>1. JavaScript Basics</h2>
-                    <ul>
-                        <li class="subtopic" data-subtopic-id="1-1">
-                            <span>Variables: Learn about <code>var</code>, <code>let</code>, and <code>const</code>.</span>
-                            <div>
-                                <button class="doneBtn" aria-label="Mark Variables as done">Done</button>
-                                <button class="undoneBtn hidden" aria-label="Mark Variables as undone">Undone</button>
-                                <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Basics" aria-label="Learn about Variables on YouTube">Learn</button>
-                            </div>
-                        </li>
-                        <!-- Additional subtopics -->
-                    </ul>
+                    <div class="subtopic">
+                        <span>Variables: Learn about <code>var</code>, <code>let</code>, and <code>const</code>.</span>
+                        <div>
+                            <button class="doneBtn" aria-label="Mark Variables as done">Done</button>
+                            <button class="undoneBtn hidden" aria-label="Mark Variables as undone">Undone</button>
+                            <button class="learnBtn" data-url="https://www.youtube.com/results?search_query=JavaScript+Basics" aria-label="Learn about Variables on YouTube">Learn</button>
+                        </div>
+                    </div>
                 </li>
-                <!-- Additional topics -->
+                <!-- Add more topics here -->
             </ul>
         </main>
         <footer>
